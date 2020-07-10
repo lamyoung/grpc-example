@@ -2,16 +2,15 @@ package main
 
 import (
 	"context"
-	"grpc-example/service"
-	"grpc-example/util"
+	"http/service"
 	"log"
 
 	"google.golang.org/grpc"
 )
 
 func main() {
-	conn, err := grpc.Dial(":9005", grpc.WithTransportCredentials(util.GetClientCredentials()))
-	//conn, err := grpc.Dial(":9005", grpc.WithInsecure())
+	//conn, err := grpc.Dial(":9005", grpc.WithTransportCredentials(util.GetClientCredentials()))
+	conn, err := grpc.Dial(":9005", grpc.WithInsecure())
 	if err != nil {
 		log.Fatalf("连接失败，原因：%v", err)
 	}
